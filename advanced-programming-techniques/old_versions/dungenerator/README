@@ -1,0 +1,7 @@
+This program generates a dungeon level for a roguelike game. A level consists of rooms connected by corridors and surrounded by rocks, with a few staircases throughout.
+
+Files:
+    CHANGLOG - Play-by-play of the construction of the program
+    floorgenerator.c - raw source code
+    Makefile - instructions to create the executable 'floorgen' when 'make' is called
+    README - this

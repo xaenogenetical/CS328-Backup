@@ -1,0 +1,18 @@
+2/27/25
+Created folder
+Set up defines for all of the base characteristics, player speed, and the turn separator
+2/28/25
+Realized i'm gonna have to convert my queue to generics because I made it only work with node_t before in order to make the program run better
+Created enemies.h to start complying more with C standards instead of shoving everything in dungeonutil.h
+Implemented the enemy move algo and allowed enemies to calc player loc when they move
+Moved some stuff from dungeonutil.h to homemadeq.h
+3/1/25
+Converted homemadeq to void stuff so it supports any payload type
+3/2/25
+changed main.c to reflect the new objective of the program
+added the logic which figures out how an enemy should move
+3/4/25
+Did a lot really late at night and dont exactly remember the order, edits include but are not limited to: store and retrieve enemy display char & speed, made enemies who can't tunnel not tunnel, logic to determine who's turn it is to move, and more.
+3/5/25
+Finishing touches, Implemented enemy speed properly
+Made tunneling monsters act like theyre supposed to (subtract from hardness then turn it to corridor);

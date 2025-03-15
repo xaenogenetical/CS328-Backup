@@ -1,0 +1,26 @@
+2/5/2025 Began Work (I did some work in between 1.01 and 1.02 which fixes my corridor/path algo)
+	Created framework (take cmd line args, determine if should save or load, etc)
+2/6/2025
+	Created dungeonutil.h, which is currently only storing my structs (dungeon, coordinate, and room)
+	Rebuilt the makefile to compile three .c files into one .o (brought in a copy of floorgenerator.c from 1.01 that I will be modifying)
+	Built main.c, which only serves to house main and read cmd line args to determine save or load
+2/7/2025
+	Renamed main in floorgenerator to draw_dungeon, and made it return a dungeon struct instead of an int (for the purposes of saving)
+	Added a few lines to place_rooms to allow the rooms to also be stored as room structs in a new room array, which allows the data to be more easily pushed into 'map'
+	Created 'set_border_hardness', which just sets the hardness of the map edges to 255
+	My head hurts.
+2/8/2025
+	Modified print_floor to take a 2d char array as a parameter in order to facilitate calling it from saveloader.c more easily
+	Scratch that. I already added a seperate function to handle that situation and forgot about it.
+	Renamed a ton of variables to avoid compilation conflicts
+2/9/2025
+	Changed my implementation of hardness so the border is all 255, rooms/corridors/stairs are 0, and rock is -1 (placeholder)
+	Modified how main.c handles args, used strcmp to compare strings because apparently == doesnt work with strings just like in java (lame)
+	Powered out the write to file function (just a series of htobe32 calls and then fwrite calls) (hopefully this works and C doesnt kill me)
+2/10/2025
+	Finished this but now im getting an issue when trying to read the semantic value to the buffer
+	I just forgot to account for the '\0' char at the end and it was messing up my offset
+	Now i have to reconstruct my entire dungeon drawing algo to write it to "lev" so it can be written
+	Good news: It functions. Bad news: I messed up my hardness map somehow.
+	I have determined that the error occurs BEFORE the map is sent to the file.
+	I swear I know how to program (i forgot to offset the hardness of the rooms, the hardnesses were all being drawn from (0,0))

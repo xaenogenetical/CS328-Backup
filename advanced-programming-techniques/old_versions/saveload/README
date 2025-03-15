@@ -1,0 +1,12 @@
+This progam is an executable designed to be run on linux. Executable is 'dungeon' and when invoked with either '--save' or '--load' it will generate a dungeon level.
+'--save': The program will create a pseudo-random level and then save it to a file located at HOMEDIR/.rlg327/dungeon (HOMEDIR is the user's home directory)
+'--load': The program will read from the file mentioned above, and draw the dungeon from the information contained within. If the file does not exist, the program will print an error message and exit.
+
+Files:
+    main.c - simple program to handle arguments
+    floorgenerator.c - C program which either randomly generates a dungeon level or creates one from file
+    saveload.c - C program containing functionality to write the existing dungeon to file or read and create a dungeon from file
+    Makefile - instructions for the machine to compile the coordinate
+    dungeonutil.h - a header which contains typedef for all the structs needed for the program
+    CHANGELOG - log of changes to the program
+    README- this

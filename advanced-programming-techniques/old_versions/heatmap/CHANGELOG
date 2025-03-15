@@ -1,0 +1,21 @@
+
+2/16/25
+    Begain work
+    Set up makefile
+    Set up basic program structure (outlined)
+    Copied Schaffers heap.c and heap.h
+    Copied pseudocode from Wikipedia for Dijkstras algorithm
+    Implemented Dijkstras algorithm with proper C syntax
+2/18/25
+    Scrapped heap.c and heap.h, implemented my own priority queue using my own heap structure
+    Segmentation fault.
+    Turns out you should NOT swap vertexes when they are also tied to a very specific location in an array.
+    Changed my queue structure to store data as nodes containing a pointer to the vertex instead of the actual vertex, so when the nodes are swapped via heapifying the vertices are unaffected.
+2/19/25
+    Converted my priority queue from a heap to a simple array which is sorted by mergesort because I would prefer to get this assignment done on time before I figure out how to make it efficient
+    It isnt sorting. The simplest mergesort I have ever written isnt sorting the values.
+2/20/25
+    As it turns out, I am going insane. I have been trying all (yester)day to figure out why my program isnt funtioning, and all I did was add and remove debug statements (printfs) and suddenly it is behaving exactly as expected. My computer is haunted.
+    Added a loading bar to the program so that the poor grader has something to look at while my dumb O(n^2) program calculates the values for every single tile in the map.
+    Cleaned up the program a bit by compiling with -Wall and -Werror to remove some lame variables and whatnot
+    Made the border print out as X instead of hardness % 10 as 10000 % 10 = 0 so it looks like a valid tile when printed

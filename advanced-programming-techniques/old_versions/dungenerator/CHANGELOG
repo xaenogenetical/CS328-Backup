@@ -1,0 +1,45 @@
+1/27/25 
+        Added boilerplate (main, includes)
+        Added define for the array containing the whole floor
+1/28/25 
+        Added constructors for each of the functions expected (place_rooms(), etc)
+        Added #define for each character that needs to be displayed (e.g. # for corridor)
+        Added **rooms[], an array of pointers which point to other pointers which each indicate the beginning of a row of one of the rooms that will be created in floor[][] (this makes sense I promise)
+        Implemented print_floor() (the easy one)
+        Renamed floor[][] to level[][] because floor is already a defined function in C and the compiler didnt like it
+        Began implementing place_rooms()
+        Added a method to add a room to rooms[][] (pointers get confusing once you start getting into pointers to arrays and such)
+        Created struct to hold the edges of each room to prevent overlapping
+        Added lock_zone(taken_area), which takes the struct I just created and adds it to an array to be checked later when more rooms are created
+        Cancelled the struct and lock_zone idea when I realized I can just have place_rooms() check if the values it wants to write to are empty or not
+        Added the check if clear functionality
+        Made place_rooms return false if the method fails to place a room 2000 times in a row
+        Made the method also loop until at least 7% of the floor is opened by rooms
+1/29/25
+        Added fill_with_rock(), which just fills all '\0' characters with spaces to signify rock
+        Updated the way rooms are written to level[][] by making them add the pipe character to signify their borders to ensure no two rooms contact each other, the pipes are overriden by fill_with_rock()
+        Segmentation fault when running, running debugger to determine cause
+        Cause found: The inner loop in fill_with_rock() checked if i < 80 instead of j < 80, causing the loop to continue until it went out of bouds on the array
+        Removed add_to_rooms because it was causing a seg fault and was too much of a headache to debug, so I have elected to instead have an int that keeps track of how full rooms is and add to the next index within place_rooms
+        Removed the pipe thing temporarily as it wasn't functioning as intended and I kinda did a bad job making it anyway. Will remake later, I would rather focus on ensuring that the rooms are added correctly at the moment.
+        Increased the requirement for successful floor creation to require at least 15% of the floor to be opened up by rooms. (7% was barely any open space)
+1/30/25
+        Finished place_rooms()
+        Began implementing link_rooms()
+1/31/25
+        Added link_a_to_b(), which does the actual linking, link_rooms() just iterates through rooms and calls the function for each pair
+        Added functionality to determine the centerpoints of each room.
+        Added calc_direction(), which takes two coordinates and determines which direction to move the cursor in
+        Program is throwing a seg fault but the debugger runs with no issues. Peculiar.
+        Fixed the seg fault (i had my < and > backwards) but now its not drawing the # for some reason.
+2/2/25
+        It wasn't drawing # because i had it looking for ' ' as my closed space but the array was filled with '\0' because i hadn't run fill_with_rock() yet. Rearranged the functions in main to run the fill before drawing paths.
+        The paths are not pretty, but they are drawn according to specification which is all I need right now.
+        Implemented add_stairs by repeatedly picking a random tile and turning it into a stair if valid. Repeat until enough stairs are placed.
+        Added a redundancy check to link_a_to_b() to prevent previously-linked rooms from being linked again. Pretties up the corridors a little as a side effect.
+        Made it so the program doesn't link rooms with centerpoints more than 40 tiles apart to help pretty things up a bit more.
+        At this point, i believe my work is done.
+EXTRA:
+2/4/25
+        After submitting the assignment, I overhauled the corridor-drawing functionality in the span of about two hours. It was a lot of work and my head hurts a little, but now
+        it is much *much* prettier and I believe more efficient too (kinda).
